@@ -18,7 +18,7 @@ public class PublisherListenerConfig {
     public Function<Message<?>,Message<?>> messageConsumer() {
         return input ->
         {
-            log.info("consumedd {}",input);
+            log.info("consumed {}",input);
 
             return input;
         };

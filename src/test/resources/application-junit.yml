@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    function:
+      definition: messageConsumer;
+    stream:
+      bindings:
+        messageConsumer-in-0:
+          destination: test-topic
+          group: test-group
+        messagePublisher-out-0:
+          destination: test-topic
+logging:
+  level:
+    root: WARN
+    org.springframework: WARN
+    com.rupam.kafkastreamemabded: INFO
+
+# Console Appender configuration
+console:
+  pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+
+# File Appender configuration
+#file:
+ # name: mylog.log
