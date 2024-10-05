@@ -3,12 +3,20 @@ spring:
     function:
       definition: messageConsumer;
     stream:
+      kafka:
+        streams:
+          binder:
+            configuration:
+              default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+              default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         messageConsumer-in-0:
           destination: test-topic
           group: test-group
         messagePublisher-out-0:
           destination: test-topic
+          contentType: application/json
+
 logging:
   level:
     root: WARN
